@@ -18,6 +18,12 @@ const ProductItem = ({ product }) => {
             }}
           >
             <Image
+              // src={
+              //   product?.images[0]
+              //     ? product?.images[0].url
+              //     : defultImg
+              // }
+
               src={
                 product?.images[0]
                   ? product?.images[0].url

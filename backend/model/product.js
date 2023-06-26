@@ -20,9 +20,11 @@ const ProductSchema = new mongoose.Schema({
             public_id:{
                 type:String,
             },
-            uri:{
+            url:{
                 type:String,
             }
+
+            
         }
     ],
     category: {
@@ -31,9 +33,9 @@ const ProductSchema = new mongoose.Schema({
         enum:{
             values:[
                 "Headphones",
-                "Tree",
+                "Electronics",
                 "Sport",
-                "Laptop"
+                "Laptops"
             ],
             message: "Place select correct category"
         }

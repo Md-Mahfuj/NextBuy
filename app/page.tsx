@@ -2,6 +2,7 @@ import Image from 'next/image'
 import axios from "axios";
 
 
+
 import ListProducts from "@/components/products/ListProducts";
 
 const getProducts = async () => {
