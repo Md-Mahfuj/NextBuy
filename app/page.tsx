@@ -1,23 +1,63 @@
-import Image from 'next/image'
+// import Image from 'next/image'
+// import axios from "axios";
+// import ListProducts from "@/components/products/ListProducts";
+
+// import queryString from 'query-string';
+
+// const getProducts = async (searchParams) => {
+
+//   const urlParams = {
+//     keyword: searchParams.keyword,
+//     page: searchParams.page,
+//   };
+
+//   const searchQuery = queryString.stringify(urlParams);
+
+
+//   const { data } = await axios.get(`${process.env.API_URL}/api/products`);
+//   return data;
+// };
+
+//  const Home = async({searchParams})=> {
+//   const productsData = await getProducts(searchParams);
+
+//   return (
+//     <main className="flex min-h-screen flex-col">
+//        <ListProducts data={productsData} />
+//     </main>
+//   )
+// }
+
+// export default Home;
+
+
+
+import React from "react";
 import axios from "axios";
-
-
-
 import ListProducts from "@/components/products/ListProducts";
 
-const getProducts = async () => {
-  const { data } = await axios.get(`${process.env.API_URL}/api/products`);
+import queryString from "query-string";
+
+const getProducts = async (searchParams) => {
+  const urlParams = {
+    keyword: searchParams.keyword,
+    page: searchParams.page,
+  };
+
+  const searchQuery = queryString.stringify(urlParams);
+
+  console.log("searchQuery",searchQuery);
+
+  const { data } = await axios.get(
+    `${process.env.API_URL}/api/products?${searchQuery}`
+  );
   return data;
 };
 
- const Home = async()=> {
-  const productsData = await getProducts();
+const HomePage = async ({ searchParams }) => {
+  const productsData = await getProducts(searchParams);
 
-  return (
-    <main className="flex min-h-screen flex-col">
-       <ListProducts data={productsData} />
-    </main>
-  )
-}
+  return <ListProducts data={productsData} />;
+};
 
-export default Home;
+export default HomePage;
