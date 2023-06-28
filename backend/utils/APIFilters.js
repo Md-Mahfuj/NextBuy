@@ -1,3 +1,5 @@
+
+
 class APIFilters {
     constructor(query, queryStr) {
       this.query = query;
